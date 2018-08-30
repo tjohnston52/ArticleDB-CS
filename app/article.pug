@@ -1,0 +1,359 @@
+extends layouts/layout
+
+block vars
+  - var page_title = 'article'
+
+block content
+  // Search Bar
+  div(style="margin: 5px 0;").row.row-tweak
+    .row
+      .col-xs-12.back-btn
+        a(href="search.html")
+          img(src="images/back.png", style="height: 35px;margin-bottom: 27px;")
+    .row.articleDetails
+      .col-xs-12.col-md-7
+        .row
+          .col-xs-12
+            div.pull-right
+        .row
+          .col-xs-12
+            h4 Title
+            div#articleTitle
+        .row
+          .col-xs-12
+            h4 Author(s)
+            div#articleAuthor
+        .row
+          .col-xs-12
+            h4 Description
+            div#articleDescription
+        .row
+          .col-xs-12
+            h4(style="margin-bottom:2px;") Rating
+            div#ratings
+        .row
+          .col-xs-12
+            h4 Publish Date
+            div#articlePublishDate
+        .row
+          .col-xs-12
+            h4 Summary
+            div#articleSummary.side-resources
+        .row
+          .col-xs-12
+            h4 Publishing Information
+            div#articleIssue
+        .row
+          .col-xs-12
+            h4 Presentation Location
+            div#articleLocation
+        .row
+          .col-xs-12
+            h4 Source Country(s)
+            div#articleCountry
+        .row
+          .col-xs-12
+            h4 Data Date
+            div#articleDataDate
+        .row
+          .col-xs-12
+            h4 Patient Data
+            div#PatientData
+        .row
+          .col-xs-12
+            h4 Matrix Data
+            div#MatrixData
+      .col-xs-12.col-md-5
+        .row
+         .col-xs-12
+           b Category(s)&nbsp;
+           div.side-resources
+             div#articleCategory
+        .row
+          .col-xs-12
+            b Resources&nbsp;
+              span(data-toggle="modal", data-target="#uploadFileModal", style="font-size: 10px;top: 0;cursor:pointer;").glyphicon.glyphicon-plus.editor
+            div.side-resources
+              div#articleLinkedResources
+                div#articleLFiles
+                div#articleLLinks
+        .row
+          .col-xs-12
+            b Related Articles&nbsp;
+              span(data-toggle="modal", data-target="#attachArticleModal", style="font-size: 10px;top: 0;cursor:pointer;").glyphicon.glyphicon-plus.editor
+            div.side-resources
+              div#articleRelatedArticles
+        .row.comment-block
+          .col-xs-12
+            b Comments&nbsp;
+            span(data-toggle="modal", data-target="#newComment", style="cursor:pointer;").glyphicon.glyphicon-comment.editor#commentBubble
+            div(style="max-height: 500px; overflow: auto;").side-resources#articleComments
+              | Comments
+        .row
+          .col-xs-12
+            b Keywords&nbsp;
+              span(data-toggle="modal", data-target="#UpdateKeyWords", style="font-size: 10px;top: 0;cursor:pointer;").glyphicon.glyphicon-plus.editor
+            div.side-resources#articleKeywords
+              | Words Words Words
+        .row
+          .col-xs-12
+            i Uploaded By:&nbsp;
+            span#articleUploadedBy
+        .row
+          .col-xs-12
+            i Creation Date:&nbsp;
+            span#articleUploadDate
+    div(style="margin-top: 7px;").row
+
+block modals
+  div(role="dialog").modal.fade#newComment
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              h4#commentHeader New Comment
+              textarea(style="resize: none;width: 100%; height: 150px;").form-control#newArticleComment
+              input(type="hidden", value="new")#updateComment
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button").btn.btn-primary#postCommentBtn Post
+
+  div(role="dialog").modal.fade#UpdateKeyWords
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              h4 KeyWords
+              textarea(style="resize: none;width: 100%; height: 150px;").form-control#newKeyWords
+              p.text-muted Comma Separated
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button", data-dismiss="modal").btn.btn-primary#KeyWordUpdateBtn Update
+
+  div(role="dialog").modal.fade#attachArticleModal
+    div.modal-dialog
+      div.modal-content
+        form#articleUploadForm
+          div.modal-header
+            button(type="button", data-dismiss="modal").close &times;
+            h4 Upload Files
+          div.modal-body
+            div#articleExisting
+              .row
+                .col-xs-10
+                  .form-group
+                    label(for="articleExistingList") Existing File
+                    select.form-control#articleExistingList
+                .col-xs-2
+                  div(style="text-align:center;").form-group
+                    label(style="width: 100%;") Preview
+                    button(type="button").btn.btn-primary#articleExistPreviewBtn
+                      span.glyphicon.glyphicon-eye-open
+              .row
+                .col-xs-12
+                  br
+                  label(for="articleRelationship") Article Relation
+                  select.form-control#articleRelationship
+                    option(value="1") Two-Way Relation
+                    option(value="2") Existing Related to New Only
+                    option(value="3") New Related to Existing Only
+                    option(value="4") Delete Relation
+                  br
+                  span.text-muted
+                    span(style="font-weight:bold;") Two-Way Relation:
+                    | &nbsp;Both articles relate to each other
+                  br
+                  span.text-muted
+                    span(style="font-weight:bold;") Existing Related to New Only:
+                    | &nbsp;Existing article appears on new only
+                  br
+                  span.text-muted
+                    span(style="font-weight:bold;") New Related to Existing Only:
+                    | &nbsp;New article appears on existing only
+
+          div.modal-footer
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            button(type="button").btn.btn-success#addExistArticle Add
+
+  div(role="dialog").modal.fade#uploadFileModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          h4(style="display:inline-block")
+            a(href="#").no-link#ArticleFiles Files
+          h4(style="display:inline-block") &nbsp;|&nbsp;
+          h4(style="display:inline-block")
+            a(href="#")#ArticleLinks URLs
+
+        // File Form
+        form#fileUploadForm
+          div.modal-body
+            .row
+              div(style="margin-bottom: 10px;").col-xs-12
+                a(href="#", style="font-weight: bold;color:#333;")#fileNewAttach New
+                | &nbsp;
+                | |
+                | &nbsp;
+                a(href="#")#fileExistingAttach Existing
+            div#filespecified
+              .row
+                .col-xs-12
+                  .form-group
+                    label(for="fileFriendlyName") Friendly Name (Displayed)
+                    Input(type="text", autocomplete="false", name="fileFriendlyName").form-control#fileFriendlyName
+              .row
+                .col-xs-12
+                  br
+                  .form-group
+                    span.control-fileupload
+                      label(for="file1")#file1label.text-left Please choose a file on your computer
+                      input(type="file", id="file1")
+              .row
+                .col-xs-12
+                  br
+                  label(style="font-weight:normal !important;")
+                    input(type="checkbox")#prev_print
+                    | &nbsp;Prevent Printing
+                  | &nbsp;&nbsp;
+                  label(style="font-weight:normal !important;")
+                    input(type="checkbox")#prev_save
+                    | &nbsp;Prevent Saving
+            div(style="display: none;")#fileExisting
+              .row
+                .col-xs-10
+                  .form-group
+                    label(for="fileExistingList") Existing File
+                    select.form-control#fileExistingList
+                .col-xs-2
+                  div(style="text-align:center;").form-group
+                    label(style="width: 100%;") Preview
+                    button(type="button").btn.btn-primary#fileExistPreviewBtn
+                     span.glyphicon.glyphicon-eye-open
+
+          // File Footer
+          div.modal-footer#fileUploadFooter
+            a(href="#", data-toggle="modal", data-target="#removeFile").pull-left#fileRemoveLink Remove a File
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            input(type="hidden", value="new")#filetype
+            button(type="submit").btn.btn-success#addFile Add
+            button(type="button", style="display:none;").btn.btn-success#addExistFile Add
+
+        // Url Form
+        form(style="display: none;")#urlUploadForm
+          div.modal-body
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Friendly Name (Displayed)
+                  Input(type="text", autocomplete="false", name="urlFriendlyName").form-control#urlFriendlyName
+            .row
+              .col-xs-12
+                br
+                .form-group
+                  label(for="urlPath") URL
+                  Input(type="text", autocomplete="false", name="urlPath").form-control#urlPath
+
+          // Url Footer
+          div(style="display: none;").modal-footer#urlUploadFooter
+            a(href="#", data-toggle="modal", data-target="#removeURL").pull-left Remove a URL
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            input(type="hidden")#urlEditID
+            button(type="submit").btn.btn-success#addUrl Add
+
+
+  div(role="dialog").modal.fade#removeFile
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              br
+              .form-group
+                span
+                  label(for="file1").text-left Remove File
+                select.form-control#attachedFile
+                  option(value="xx") Something
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button").btn.btn-primary#removeFileBtn Remove
+
+  div(role="dialog").modal.fade#removeURL
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              br
+              .form-group
+                span
+                  label(for="file1").text-left Remove URL
+                select.form-control#attachedURL
+                  option(value="xx") Something
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button").btn.btn-primary#removeURLBtn Remove
+
+  div(role="dialog").modal.fade#commentDeleteModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          h4 Delete Comment
+          .row
+            .col-xs-12
+
+              P Are you sure you want to delete comment?
+              p(style="font-style:italic;padding:10px 15px 10px 15px;").side-resources#commentDeleteText
+              input(type="hidden")#deleteComment
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button").btn.btn-primary#deleteCommentBtn Delete
+
+  div(role="dialog").modal.fade#deleteModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          h4 Delete Article
+        div.modal-body
+          p Are you sure you want to delete this article? The following information will be deleted and cannot be undone:
+          ul
+            li Article information
+            li Study Information
+            li Patient Data
+            li Comments
+        div.modal-footer
+          button(type="button", data-dismiss="modal").btn.btn-danger No
+          button(type="button", data-dismiss="modal").btn.btn-success#confirmDeleteBtn Yes
+
+
+block add-on-js
+  script.
+    $('#curPage').html('Search Articles&nbsp;').attr('data-page','articleview');

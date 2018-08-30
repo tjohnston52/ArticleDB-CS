@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IFD Article Resource</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory-->
+    <!-- build:css styles/vendor.css-->
+    <!-- bower:css-->
+    <!-- endbower-->
+    <!-- endbuild-->
+    <link rel="stylesheet" href="../bower_components/quill/quill.core.css">
+    <link rel="stylesheet" href="../bower_components/quill/quill.snow.css">
+    <!-- build:css styles/main.css-->
+    <link rel="stylesheet" href="styles/addon.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild-->
+    <!-- build:js scripts/vendor/modernizr.js-->
+    <!-- endbuild-->
+    <body><!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+      <!--.container-fluid
+      .row
+        div(style="background-color: #444;").col-xs-12
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark Button
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark Add Resources
+      -->
+      <div class="container">
+        <div class="header pad-tweak" style="padding-top:15px;padding-bottom: 15px;">
+          <div class="pull-right">
+            <div class="dropdown" style="padding:10px 15px 10px 10px;cursor:pointer;"><a class="dropdown-toggle" type="button" data-toggle="dropdown" id="loginDropDownMenu"><span id="user">tjohnston@orasure.com&nbsp;</span><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="loginDropDownMenu">
+                <li role="presentation"><a href="#" tabindex="-1" role="menitem" id="navLogout">Logout</a></li>
+              </ul>
+            </div>
+            <div class="dropdown" style="cursor:pointer;">
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown" id="NavDropDownMenu"><span id="curPage">&nbsp;&nbsp;</span><span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="loginDropDownMenu">
+                <li role="presentation"><a href="search" tabindex="-1" role="menitem" id="navSearchArticles">Search Articles</a></li>
+                <li role="presentation"><a href="upload" tabindex="-1" role="menitem" id="navUploadArticles">Upload Articles</a></li>
+                <li class="divide"></li>
+                <li class="dropdown dropdown-submenu" role="presentation"><a class="dropdown-toggle" href="#" tabindex="-1" role="menitem" data-toggle="dropdown" id="navSettings">System Settings</a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><a href="account" tabindex="-1" role="menitem" id="navAccount">Account Info</a></li>
+                    <li class="divide"></li>
+                    <li role="presentation"><a href="collections" tabindex="-1" role="menitem" id="navViewCollections">Collections</a></li>
+                    <li role="presentation"><a href="users" tabindex="-1" role="menitem" id="navUsers">Users</a></li>
+                    <li role="presentation"><a href="files" tabindex="-1" role="menitem" id="navFiles">Files</a></li>
+                    <li role="presentation"><a href="setting" tabindex="-1" role="menitem" id="navMatrix">Matrix/Category</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div><a href="/search"><img class="img-responsive" src="images/logo.png" alt="OraSure Logo" style="width: 220px;"></a>
+        </div>
+        <div class="row row-tweak">
+          <div style="width: 100%;height: 30px;background-color:#17527E;"></div>
+        </div>
+        <div class="row row-tweak">
+          <div class="col xs-12" style="padding-bottom:0;font-size: 0px;">
+            <svg data-name="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 666.8 64.93" style="margin-top: 5px;margin-bottom: 5px;" id="id">Layer_1
+              <!--g#Backdroprect(x="4", y="7.97", width="657", height="49").cls-1
+              -->
+              <g id="Fifth_Block">
+                <polygon class="cls-26" points="536.5 0.5 666.3 0.5 666.3 64.43 536.5 64.43 569 32.47 536.5 0.5" id="Fifth_Block_Poly"></polygon>
+                <text class="cls-3" transform="translate(572 29.47)">
+                  <tspan class="cls-4">
+                    <tspan class="cls-5">Step 5:</tspan>
+                  </tspan>
+                  <tspan class="cls-6">
+                    <tspan class="cls-7" x="0" y="14.4">Associated Files</tspan>
+                  </tspan>
+                </text>
+              </g>
+              <g id="Fourth_Block">
+                <polygon class="cls-26" points="402.5 0.5 532.3 0.5 565 32.47 532.3 64.43 402.5 64.43 435 32.47 402.5 0.5" id="Fourth_Block_Poly"></polygon>
+                <text class="cls-3" transform="translate(440 29.47)">
+                  <tspan class="cls-4">
+                    <tspan class="cls-5">Step 4:</tspan>
+                  </tspan>
+                  <tspan class="cls-6">
+                    <tspan class="cls-12" x="0" y="14.4">Search Data</tspan>
+                  </tspan>
+                </text>
+              </g>
+              <g id="Third_Block">
+                <polygon class="cls-26" points="268.5 0.5 398.3 0.5 431 32.47 398.3 64.43 268.5 64.43 301 32.47 268.5 0.5" id="Third_Block_Poly"></polygon>
+                <text class="cls-3" transform="translate(307 29.47)">
+                  <tspan class="cls-4">
+                    <tspan class="cls-5">Step 3:</tspan>
+                  </tspan>
+                  <tspan class="cls-6">
+                    <tspan class="cls-16" x="0" y="14.4">Study Information</tspan>
+                  </tspan>
+                </text>
+              </g>
+              <g id="Second_Block">
+                <polygon class="cls-26" points="134.5 0.5 264.3 0.5 297 32.47 264.3 64.43 134.5 64.43 167 32.47 134.5 0.5" id="Second_Block_Poly"></polygon>
+                <text class="cls-3" transform="translate(176 29.47)">
+                  <tspan class="cls-4">
+                    <tspan class="cls-5">Step 2:</tspan>
+                  </tspan>
+                  <tspan class="cls-6">
+                    <tspan class="cls-20" x="0" y="14.4">Publishing</tspan>
+                  </tspan>
+                </text>
+              </g>
+              <g id="First_Block">
+                <polygon class="cls-21" points="0.5 0.5 130.3 0.5 163 32.47 130.3 64.43 0.5 64.43 0.5 0.5" id="First_Block_Poly"></polygon>
+                <text class="cls-3" transform="translate(36 29.47)">
+                  <tspan class="cls-4">
+                    <tspan class="cls-5">Step 1:</tspan>
+                  </tspan>
+                  <tspan class="cls-6">
+                    <tspan class="cls-22" x="0" y="14.4">Overview</tspan>
+                  </tspan>
+                </text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="row" id="uploadPanel">
+          <div class="col-xs-12">
+            <!-- Pane 1-->
+            <form style="border:1px solid #bcbcbc;padding: 0 15px 0 15px;" id="upload_form_1">
+              <div class="row" style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;">
+                <div class="col-xs-4" style="padding:0;">
+                  <!-- Back Button Removed on First Pane-->
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg restartBtn center-block bar_btn" type="button">Start Over</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-primary btn-lg pull-right bar_btn" type="submit" id="upload_form_1_btn">Next<i class="glyphicon glyphicon-chevron-right"></i></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3>Step 1: Overview</h3>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">Title</label>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="title" autocomplete="off" id="title">
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="description">Description</label>
+                  <div class="form-group">
+                    <textarea class="form-control" name="description" style="resize:none;height:150px;scrolling:auto;" autocomplete="off" id="description"></textarea>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="Summary">Summary</label>
+                  <div class="form-group">
+                    <textarea class="form-control" name="summary" style="resize:none;height:150px;scrolling:auto;" autocomplete="off" id="summary"></textarea>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <label for="category">Category</label>
+                      </div>
+                    </div>
+                    <div class="row" id="category">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input class="category" type="checkbox" name="category" value="1" id="cat-1">
+                        </label>&nbsp;Oral Fluid Preference
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input class="category" type="checkbox" name="category" value="2" id="cat-2">
+                        </label>&nbsp;Oral Fluid Performance
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input class="category" type="checkbox" name="category" value="3" id="cat-3">
+                        </label>&nbsp;Whole Blood
+                      </div>
+                      <div class="col-xs-12"></div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input class="category" type="checkbox" name="category" value="4" id="cat-4">
+                        </label>&nbsp;Oral Fluid Preference
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input class="category" type="checkbox" name="category" value="5" id="cat-5">
+                        </label>&nbsp;Oral Fluid Performance
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input class="category" type="checkbox" name="category" value="6" id="cat-6">
+                        </label>&nbsp;Whole Blood
+                      </div>
+                    </div>
+                    <div style="margin-top: 20px;" id="alertCheckboxes"></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- Pane 2-->
+            <form style="border:1px solid #bcbcbc;padding: 0 15px 0 15px;" id="upload_form_2">
+              <div class="row" style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;">
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg backBtn bar_btn" type="button" data-id="2"><i class="glyphicon glyphicon-chevron-left"></i>Back</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg restartBtn center-block bar_btn" type="button">Start Over</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-primary btn-lg pull-right bar_btn" type="submit" id="upload_form_2_btn">Next<i class="glyphicon glyphicon-chevron-right"></i></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3>Step 2: Publishing</h3>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">Author</label>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="author" autocomplete="off" id="author">
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="description">Journal/Presentation Location</label>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="journal" autocomplete="off" id="journal">
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="description">Date of Publication</label>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="pub_date" autocomplete="off" id="pub_date">
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="description">Issue/Vol/Pages</label>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="issue" autocomplete="off" id="issue">
+                  </div>
+                </div>
+                <div class="col-xs-12"><br><br></div>
+              </div>
+            </form>
+            <!-- Pane 3-->
+            <form style="border:1px solid #bcbcbc;padding: 0 15px 0 15px;" id="upload_form_3">
+              <div class="row" style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;">
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg backBtn bar_btn" type="button" data-id="3"><i class="glyphicon glyphicon-chevron-left"></i>Back</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg restartBtn center-block bar_btn" type="button">Start Over</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-primary btn-lg pull-right bar_btn" type="submit" id="upload_form_3_btn">Next<i class="glyphicon glyphicon-chevron-right"></i></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3>Step 3: Study Information</h3>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">Data Start Month/Year</label>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="data_start_year" autocomplete="off" id="data_start_year">
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">End Month/Year</label>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="data_end_year" autocomplete="off" id="data_end_year">
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">Source Country(s)
+                    <div class="form-group">
+                      <input class="form-control" type="text" name="title" autocomplete="off" id="source_country">
+                    </div>
+                  </label>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">Title
+                    <div class="form-group">
+                      <input class="form-control" type="text" name="title" autocomplete="off" id="title2">
+                    </div>
+                  </label>
+                </div>
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <label for="category">Category</label>
+                      </div>
+                    </div>
+                    <div class="row" id="category3">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid_preference33">
+                        </label>&nbsp;Oral Fluid Preference
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid-performance33">
+                        </label>&nbsp;Oral Fluid Performance
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-whole_blood33">
+                        </label>&nbsp;Whole Blood
+                      </div>
+                      <div class="col-xs-12"></div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid_preference333">
+                        </label>&nbsp;Oral Fluid Preference
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid-performance333">
+                        </label>&nbsp;Oral Fluid Performance
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-whole_blood333">
+                        </label>&nbsp;Whole Blood
+                      </div>
+                    </div>
+                    <div style="margin-top: 20px;" id="alertCheckboxes3"></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- Pane 4-->
+            <form style="border:1px solid #bcbcbc;padding: 0 15px 0 15px;" id="upload_form_4">
+              <div class="row" style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;">
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg backBtn bar_btn" type="button" data-id="4"><i class="glyphicon glyphicon-chevron-left"></i>Back</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg restartBtn center-block bar_btn" type="button">Start Over</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-primary btn-lg pull-right bar_btn" type="submit" id="upload_form_4_btn">Publish<i class="glyphicon glyphicon-chevron-right"></i></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3>Step 4: Search Data</h3>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">Title</label>
+                  <div class="form-group">
+                    <input class="form-control" type="text" name="title" autocomplete="off" id="title4">
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="description">Description</label>
+                  <div class="form-group">
+                    <textarea class="form-control" name="description" style="resize:none;height:150px;scrolling:auto;" autocomplete="off" id="description4"></textarea>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="Summary">Summary</label>
+                  <div class="form-group">
+                    <textarea class="form-control" name="summary" style="resize:none;height:150px;scrolling:auto;" autocomplete="off" id="summary4"></textarea>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <label for="category">Category</label>
+                      </div>
+                    </div>
+                    <div class="row" id="category4">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid_preference44">
+                        </label>&nbsp;Oral Fluid Preference
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid-performance44">
+                        </label>&nbsp;Oral Fluid Performance
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-whole_blood44">
+                        </label>&nbsp;Whole Blood
+                      </div>
+                      <div class="col-xs-12"></div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid_preference2444">
+                        </label>&nbsp;Oral Fluid Preference
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid-performance2444">
+                        </label>&nbsp;Oral Fluid Performance
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-whole_blood2444">
+                        </label>&nbsp;Whole Blood
+                      </div>
+                    </div>
+                    <div style="margin-top: 20px;" id="alertCheckboxes4"></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- Pane 5-->
+            <form style="border:1px solid #bcbcbc;padding: 0 15px 0 15px;" id="upload_form_5">
+              <div class="row" style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;">
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg backBtn bar_btn" type="button" data-id="5"><i class="glyphicon glyphicon-chevron-left"></i>Back</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-default btn-lg restartBtn center-block bar_btn" type="button">Start Over</button>
+                </div>
+                <div class="col-xs-4" style="padding:0;">
+                  <button class="btn btn-primary btn-lg pull-right bar_btn" type="submit" id="upload_form_5_btn">Attach<i class="glyphicon glyphicon-chevron-right"></i></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3>Step 5: Associated Files</h3>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">URL
+                    <button class="btn btn-primary nobtnpad" type="button" data-toggle="modal" data-target="#uploadUrlModal"><i class="glyphicon glyphicon-plus"></i></button>
+                  </label>
+                  <div id="url_listing"></div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="title">File
+                    <button class="btn btn-primary nobtnpad" type="button" data-toggle="modal" data-target="#uploadFileModal"><i class="glyphicon glyphicon-plus"></i></button>
+                  </label>
+                  <div id="doc_listing"></div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="description">Description</label>
+                  <div class="form-group">
+                    <textarea class="form-control" name="description" style="resize:none;height:150px;scrolling:auto;" autocomplete="off" id="summary5"></textarea>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <label for="Summary">Summary</label>
+                  <div class="form-group">
+                    <div id="toolbar">
+                      <button class="ql-bold" type="button">Bold</button>
+                      <button class="ql-italic" type="button">Italic</button>
+                      <button class="ql-underline" type="button">Underline</button>
+                      <select class="ql-size">Size
+                        <option value="small"></option>
+                        <option selected></option>
+                        <option value="large"></option>
+                        <option value="huge"></option>
+                      </select>
+                      <button class="ql-link" type="button">Link</button>
+                    </div>
+                    <div style="height:200px;" id="editor"></div>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <label for="category">Category</label>
+                      </div>
+                    </div>
+                    <div class="row" id="category5">
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid_preference55">
+                        </label>&nbsp;Oral Fluid Preference
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid-performance55">
+                        </label>&nbsp;Oral Fluid Performance
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-whole_blood55">
+                        </label>&nbsp;Whole Blood
+                      </div>
+                      <div class="col-xs-12"></div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid_preference555">
+                        </label>&nbsp;Oral Fluid Preference
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-oral_fluid-performance555">
+                        </label>&nbsp;Oral Fluid Performance
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4">
+                        <label>
+                          <input type="checkbox" id="cat-whole_blood555">
+                        </label>&nbsp;Whole Blood
+                      </div>
+                    </div>
+                    <div style="margin-top: 20px;" id="alertCheckboxes5"></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="row">
+            <div style="width: 100%;height: 30px;background-color:#17527E;margin-top: 5px;"></div>
+          </div>
+          <p>&hearts; from the Creative Services</p>
+          <button class="btn btn-default center-block" type="button" id="storageReset">Reset</button>
+        </div>
+      </div>
+      <div class="modal fade" role="dialog" id="restartCheck">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">&times;</button>
+              <h4>Confirm Restart</h4>
+            </div>
+            <div class="modal-body">Are you sure?</div>
+            <div class="modal-footer">
+              <button class="btn btn-danger" type="button" data-dismiss="modal">No</button>
+              <button class="btn btn-success" type="button" data-dismiss="modal" id="confirmRestartBtn">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" role="dialog" id="uploadUrlModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form id="urlUploadForm">
+              <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">&times;</button>
+                <h4>Add URL</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <label for="urlFriendlyName">Friendly Name (Displayed)</label>
+                      <Input class="form-control" type="text" autocomplete="false" name="urlFriendlyName" id="urlFriendlyName"></Input>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12"><br>
+                    <div class="form-group">
+                      <label for="urlPath">URL</label>
+                      <Input class="form-control" type="text" autocomplete="false" name="urlPath" id="urlPath"></Input>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-success" type="submit" id="addUrl">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" role="dialog" id="uploadFileModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form id="fileUploadForm">
+              <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">&times;</button>
+                <h4>Upload Files</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <label for="urlFriendlyName">Friendly Name (Displayed)</label>
+                      <Input class="form-control" type="text" autocomplete="false" name="fileFriendlyName" id="fileFriendlyName"></Input>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12"><br>
+                    <div class="form-group">
+                      <label for="urlPath">File</label>
+                      <Input class="form-control" type="file" autocomplete="false" name="filePath" id="files"></Input>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-success" type="submit" id="addFile">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+      <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='https://www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+        
+      </script>
+      <!-- build:js scripts/vendor.js-->
+      <!-- bower:js-->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <!-- endbower-->
+      <!-- endbuild-->
+      <!-- build:js scripts/plugins.js-->
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+      <script src="/bower_components/form.validation/dist/js/formValidation.js"></script>
+      <script src="/bower_components/form.validation/dist/js/framework/bootstrap.js"></script>
+      <script src="/bower_components/toastr/toastr.js"></script>
+      <script src="/bower_components/quill/quill.js"></script>
+      <!-- endbuild-->
+      <!-- build:js scripts/main.js-->
+      <script src="scripts/book.js"></script>
+      <script src="scripts/main.js"></script>
+      <!-- endbuild-->
+      <script src="scripts/upload_forms.js"></script>
+      <script type="text/javascript">
+        var quill = new Quill('#editor', {
+            modules: {
+              toolbar: '#toolbar'
+            },
+            theme: 'snow'
+          });
+      </script>
+      <script>$('#curPage').html('Upload Articles&nbsp;');</script>
+    </body>
+  </head>
+</html>

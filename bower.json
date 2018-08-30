@@ -1,0 +1,24 @@
+{
+  "name": "pugtest",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.1",
+    "toastr": "^2.1.3",
+    "form.validation": "*",
+    "quill": "https://github.com/quilljs/quill/releases/download/v1.0.3/quill.tar.gz",
+    "pdf.js-viewer": "^1.6.211"
+  }
+}

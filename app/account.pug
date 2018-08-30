@@ -1,0 +1,50 @@
+extends layouts/layout
+
+block vars
+  - var page_title = 'account'
+
+block content
+  div(style="margin: 5px 0; background-color:#fff;").row.row-tweak
+    div(style="padding:15px 0 30px 0;").col-xs-12#user_account_info
+      form#myAccount
+        .row
+          .col-xs-12.col-md-4.col-md-push-2
+            label(for="user_first_name")
+              h4 First Name:
+            .form-group
+              input(type="text", name="fname").form-control#user_first_name
+          .col-xs-12.col-md-4.col-md-push-2
+            label(for="user_last_name")
+             h4 Last Name:
+            .form-group
+              input(type="text", name="lname").form-control#user_last_name
+        .row
+          .col-xs-12.col-md-8.col-md-push-2
+            label(for="user_email")
+              h4 Email:
+            .form-group
+              input(type="text", name="email").form-control#user_email
+        .row
+          .col-xs-12.col-md-4.col-md-push-2
+            label(for="user_first_name")
+              h4 Password:
+            .form-group
+              input(type="password", name="password").form-control#user_pass
+          .col-xs-12.col-md-4.col-md-push-2
+            label(for="user_last_name")
+              h4 Retype Password:
+            .form-group
+              input(type="password", name="retype").form-control#user_retype_pass
+        .row
+          .col-xs-12.col-md-8.col-md-push-2
+            span.text-muted Leave password blank to ignore updating password
+        .row
+          .col-xs-12.col-md-10
+            div(style="margin-top: 15px;").pull-right
+              button(type="submit").btn.btn-primary#saveOwnAccount Update
+
+block modals
+
+
+block add-on-js
+  script $('#curPage').html('Account Information&nbsp;');

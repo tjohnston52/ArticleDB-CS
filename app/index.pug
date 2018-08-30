@@ -1,0 +1,33 @@
+extends layouts/login_layout
+
+block vars
+  - var page_title = 'login'
+block content
+  .row.marketing
+      div(style="border: 2px solid #e3e3e3; border-radius: 10px; background-color:#fff;").col-xs-12.col-sm-10.col-sm-push-2.col-md-6.col-md-push-3
+          .row.marketing
+            div(style="text-align:center;").col-xs-12
+              img(src="images/logo.png", alt="OraSure Logo", style="width: 220px;").center-block.img-responsive
+          form#loginForm
+              .row.marketing
+                  .div.col-xs-12
+                      .form-group
+                          label(for="email") Email
+                          input(type="text", placeholder="Enter email address", name="email", autocomplete="off").form-control#email
+
+              .row.marketing
+                  .div.col-xs-12
+                      .form-group
+                          label(for="pass") Password
+                          input(type="password", placeholder="Enter password", name="pass", autocomplete="off").form-control#pass
+
+              .row.marketing
+                  .div.col-hidden-xs.col-sm-6
+                      //button(type="button").btn.btn-danger.btn-block#commence_reset Forgot?
+                  .div.col-xs-12.col-sm-6
+                      button(type="submit").btn.btn-success.btn-block#commence_login Login
+                          i.glyphicon.glyphicon-chevron-right
+
+
+
+block modals

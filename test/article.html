@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IFD Article Resource</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory-->
+    <!-- build:css styles/vendor.css-->
+    <!-- bower:css-->
+    <!-- endbower-->
+    <!-- endbuild-->
+    <link rel="stylesheet" href="../bower_components/quill/quill.core.css">
+    <link rel="stylesheet" href="../bower_components/quill/quill.snow.css">
+    <!-- build:css styles/main.css-->
+    <link rel="stylesheet" href="styles/addon.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild-->
+    <!-- build:js scripts/vendor/modernizr.js-->
+    <!-- endbuild-->
+    <body><!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+      <!--.container-fluid
+      .row
+        div(style="background-color: #444;").col-xs-12
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark Button
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark Add Resources
+      -->
+      <div class="container">
+        <div class="header pad-tweak" style="padding-top:15px;padding-bottom: 15px;">
+          <div class="pull-right">
+            <div class="dropdown" style="padding:10px 15px 10px 10px;cursor:pointer;"><a class="dropdown-toggle" type="button" data-toggle="dropdown" id="loginDropDownMenu"><span id="user">tjohnston@orasure.com&nbsp;</span><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="loginDropDownMenu">
+                <li role="presentation"><a href="#" tabindex="-1" role="menitem" id="navLogout">Logout</a></li>
+              </ul>
+            </div>
+            <div class="dropdown" style="cursor:pointer;">
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown" id="NavDropDownMenu"><span id="curPage">&nbsp;&nbsp;</span><span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="loginDropDownMenu">
+                <li role="presentation"><a href="search" tabindex="-1" role="menitem" id="navSearchArticles">Search Articles</a></li>
+                <li role="presentation"><a href="upload" tabindex="-1" role="menitem" id="navUploadArticles">Upload Articles</a></li>
+                <li class="divide"></li>
+                <li class="dropdown dropdown-submenu" role="presentation"><a class="dropdown-toggle" href="#" tabindex="-1" role="menitem" data-toggle="dropdown" id="navSettings">System Settings</a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><a href="account" tabindex="-1" role="menitem" id="navAccount">Account Info</a></li>
+                    <li class="divide"></li>
+                    <li role="presentation"><a href="collections" tabindex="-1" role="menitem" id="navViewCollections">Collections</a></li>
+                    <li role="presentation"><a href="users" tabindex="-1" role="menitem" id="navUsers">Users</a></li>
+                    <li role="presentation"><a href="files" tabindex="-1" role="menitem" id="navFiles">Files</a></li>
+                    <li role="presentation"><a href="setting" tabindex="-1" role="menitem" id="navMatrix">Matrix/Category</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div><a href="/search"><img class="img-responsive" src="images/logo.png" alt="OraSure Logo" style="width: 220px;"></a>
+        </div>
+        <div class="row row-tweak">
+          <div style="width: 100%;height: 30px;background-color:#17527E;"></div>
+        </div>
+        <!-- Search Bar-->
+        <div class="row row-tweak" style="margin: 5px 0;">
+          <div class="row">
+            <div class="col-xs-12 back-btn"><a href="search"><img src="images/back.png" style="height: 35px;margin-bottom: 27px;"></a></div>
+          </div>
+          <div class="row articleDetails">
+            <div class="col-xs-12 col-md-7">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="pull-right"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Title</h4>
+                  <div id="articleTitle"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Author(s)</h4>
+                  <div id="articleAuthor"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4 style="margin-bottom:2px;">Rating</h4>
+                  <div id="ratings"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Publish Date</h4>
+                  <div id="articlePublishDate"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Summary</h4>
+                  <div id="articleSummary"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Publishing Information</h4>
+                  <div id="articleIssue"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Presentation Location</h4>
+                  <div id="articleLocation"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Source Country(s)</h4>
+                  <div id="articleCountry"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Data Date</h4>
+                  <div id="articleDataDate"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Patient Data</h4>
+                  <div id="PatientData"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>Matrix Data</h4>
+                  <div id="MatrixData"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-5">
+              <div class="row">
+                <div class="col-xs-12"><b>Resources
+                    <nbsp></nbsp><span class="glyphicon glyphicon-plus" style="font-size: 10px;top: 0;"></span></b>
+                  <div class="side-resources">
+                    <div id="articleLinkedResources"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><b>Related Articles
+                    <nbsp></nbsp><span class="glyphicon glyphicon-plus" style="font-size: 10px;top: 0;"></span></b>
+                  <div class="side-resources">
+                    <div id="articleRelatedArticles"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row comment-block">
+                <div class="col-xs-12"><b>Comments</b>
+                  <nbsp></nbsp><span class="glyphicon glyphicon-comment" data-toggle="modal" data-target="#newComment" style="cursor:pointer;"></span>
+                  <div class="side-resources" style="max-height: 500px; overflow: auto;" id="articleComments">Comments</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><b>Keywords
+                    <nbsp></nbsp><span class="glyphicon glyphicon-plus" style="font-size: 10px;top: 0;"></span></b>
+                  <div class="side-resources" id="articleKeywords">Words Words Words</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><i>Uploaded By:</i>
+                  <nbsp></nbsp><span id="articleUploadedBy"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12"><i>Creation Date:</i>
+                  <nbsp></nbsp><span id="articleUploadDate"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 7px;"></div>
+        </div>
+        <div class="footer">
+          <div class="row">
+            <div style="width: 100%;height: 30px;background-color:#17527E;margin-top: 5px;"></div>
+          </div>
+          <p>&hearts; from the Creative Services</p>
+          <button class="btn btn-default center-block" type="button" id="storageReset">Reset</button>
+        </div>
+      </div>
+      <div class="modal fade" role="dialog" id="newComment">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button class="close" type="button" data-dismiss="modal">&times;</button>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h4>New Comment</h4>
+                  <textarea class="form-control" style="resize: none;width: 100%; height: 150px;" id="newArticleComment"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer"><span class="input-group-btn">
+                <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-primary" type="button" data-dismiss="modal">Post</button></span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+      <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='https://www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+        
+      </script>
+      <!-- build:js scripts/vendor.js-->
+      <!-- bower:js-->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <!-- endbower-->
+      <!-- endbuild-->
+      <!-- build:js scripts/plugins.js-->
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+      <script src="/bower_components/form.validation/dist/js/formValidation.js"></script>
+      <script src="/bower_components/form.validation/dist/js/framework/bootstrap.js"></script>
+      <script src="/bower_components/toastr/toastr.js"></script>
+      <script src="/bower_components/quill/quill.js"></script>
+      <!-- endbuild-->
+      <!-- build:js scripts/main.js-->
+      <script src="scripts/book.js"></script>
+      <script src="scripts/main.js"></script>
+      <!-- endbuild-->
+      <script src="scripts/article-details.js"></script>
+    </body>
+  </head>
+</html>

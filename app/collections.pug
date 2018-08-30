@@ -1,0 +1,144 @@
+extends layouts/layout
+
+block vars
+  - var page_title = 'collections'
+
+block content
+  div(style="margin: 5px 0; background-color:#fff;").row.row-tweak
+    div(style="padding:5px; background-color:#555;").col-xs-12.col-sm-5.col-md-3#user_account_info
+      button.btn.btn-default.squareBtn#CollectionCreateBtn New Collection&nbsp;&nbsp;
+        span(style="font-size: 10px;").glyphicon.glyphicon-plus
+
+    div(style="padding:5px; background-color:#555;").col-xs-12.col-sm-7.col-md-9
+      div(style="visibility:hidden;").pull-right#collectionEditToolbar
+        button(style="display:none;").btn.btn-default.squareBtn Share
+        button.btn.btn-default.squareBtn#CollectionEditBtn Edit
+        button(data-target="#deleteCollectionSure", data-toggle="modal").btn.btn-danger.squareBtn#deleteCollectionSureBtn
+          span(style="font-size: 10px;").glyphicon.glyphicon-trash
+    div(style="padding:0;").col-xs-12
+      .row
+        .col-xs-12.col-md-3
+          .row
+            .col-xs-12
+              input(value="abd", type="hidden")#searchTerm
+          .row
+            .col-xs-12
+              .paginating
+          .row
+            .col-xs-12
+              div(style="max-height: 500px !important; overflow:auto").collections#scan_collections Nothing to show
+        .col-xs-12.col-md-9
+          div(style="max-height: 521px !important; overflow:auto")#collections-table
+
+
+block modals
+  div(role="dialog").modal.fade#articleDetailModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          h4 Article Details
+          input(type="hidden")#articleID
+          input(type="hidden")#articleSubID
+        div.modal-body#articleDetailInformation
+          .row
+            .col-xs-12
+              div.pull-right#ratings
+            .col-xs-12
+              h4 Title
+              div#articleTitle
+
+            .col-xs-12
+              h4 Author(s)
+              div#articleAuthor
+
+            .col-xs-12
+              h4 Publish Date
+              div#articlePublishDate
+
+            .col-xs-12
+              h4 Summary
+              div#articleSummary
+
+            .col-xs-12
+              h4 Comments
+              div#articleComments
+
+        div.modal-footer
+          span.pull-left
+            button(type="button", data-target="#removeFromCollectionSure", data-toggle="modal").btn.btn-danger#removeFromCollection Remove from Collection
+          span.input-group-btn
+            button(type="button", data-toggle="dropdown").btn.btn-default.dropdown-toggle
+              | &plus; Collection
+            ul(role="menu").dropdown-menu.pull-right#collectionDDL
+
+            button(type="button", data-dismiss="modal", data-new="new").btn.btn-primary#loadArticle Continue >
+
+
+
+
+  div(role="dialog").modal.fade#removeFromCollectionSure
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              | Are you sure?
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button", data-dismiss="modal").btn.btn-danger#removeArticleFromCollection REMOVE
+
+  div(role="dialog").modal.fade#deleteCollectionSure
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              input(type="hidden")#collection_delete_id
+              b Are you sure you want to delete:&nbsp;
+              span#deleteCollectionTitle
+              | ?
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button", data-dismiss="modal").btn.btn-danger#deleteCollectionYes REMOVE
+
+  div(role="dialog").modal.fade#newCollection
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              input(type="hidden")#edit_art_id
+              label
+                h3 Collection Name
+              input(type="text", style="border-radius: 0;").form-control#newCollectionName
+          .row
+            .col-xs-12.col-sm-8.col-md-6
+              label
+                h3 Visibility (Searching Only)
+              select.form-control#isGlobal
+                option(value="0") Private
+                option(value="1") Public
+
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button").btn.btn-primary#createNewCollectionBtn Create
+
+block add-on-js
+  script $('#curPage').html('Collections&nbsp;');
+  //script getCollections(1);

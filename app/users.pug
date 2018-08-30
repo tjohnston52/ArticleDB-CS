@@ -1,0 +1,66 @@
+extends layouts/layout
+
+block vars
+  - var page_title = 'users'
+
+block content
+  div(style="margin: 5px 0; background-color:#fff;").row.row-tweak
+    div(style="padding:15px 0 30px 0;").col-xs-12#user_account_info
+      .row
+        .col-xs-12.col-md-4.col-md-push-2
+          label(for="user_email")
+            h4 User:
+          select.form-control#user-name
+            option(value="new") New User
+        .col-xs-12.col-md-4.col-md-push-2
+          label(for="user_first_name")
+            h4 Status:
+          div.form-control#statusText Testing
+      .row
+        .col-xs-12.col-md-4.col-md-push-2
+          label(for="user_first_name")
+            h4 First Name:
+          input(type="text").form-control#user_first_name
+        .col-xs-12.col-md-4.col-md-push-2
+          label(for="user_last_name")
+            h4 Last Name:
+          input(type="text").form-control#user_last_name
+      .row
+        .col-xs-12.col-md-4.col-md-push-2
+          label(for="user_email")
+            h4 Email:
+          input(type="text").form-control#user_email
+        .col-xs-12.col-md-4.col-md-push-2
+          label(for="user_email")
+            h4 Role:
+          select.form-control#user-role
+            option(value="xx") Select a role
+            option(value="1") Reader
+            option(value="2") Editor
+            option(value="3") Admin
+            option(value="4") Developer
+      .row
+        .col-xs-12.col-md-4.col-md-push-2
+          label(for="user_first_name")
+            h4 Password:
+          input(type="password").form-control#user_pass
+        .col-xs-12.col-md-4.col-md-push-2
+          label(for="user_last_name")
+            h4 Retype Password:
+          input(type="password").form-control#user_retype_pass
+      .row
+        .col-xs-12.col-md-8.col-md-push-2
+          span.text-muted.pass-note Leave password blank to ignore updating password
+      .row
+        .col-xs-12.col-md-8.col-md-push-2
+          div(style="margin-top: 15px;display:none;").pull-left#statusToggle
+            button.btn.btn-danger#statusToggleBtn Toggle
+          div(style="margin-top: 15px;").pull-right
+            button.btn.btn-primary#createUserBtn Create
+
+
+block modals
+
+
+block add-on-js
+  script $('#curPage').html('Users&nbsp;');

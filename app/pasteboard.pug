@@ -1,0 +1,79 @@
+div(style="display:none;").col-xs-12#uploadPanel_2
+  .col-xs-12
+    h3(style="margin-top: 0;") Step 2: Publishing
+  .col-xs-12
+    .form-group
+      label(for="title") Title
+      input(type="text", name="title").form-control#title2
+  .col-xs-12
+    .form-group
+      label(for="description") Description
+      textarea(name="description", style="resize:none;height:150px;scrolling:auto;").form-control#description2
+  .col-xs-12
+    .form-group
+      label(for="Authors") Authors
+      input(type="text", name="authors").form-control#authors2
+  .col-xs-12
+    .form-group
+      label(for="Summary") Summary
+      textarea(name="summary", style="resize:none;height:150px;scrolling:auto;").form-control#summary2
+  .col-xs-12
+    .form-group
+      label(for="location") Location
+      input(type="text", name="location").form-control#location2
+  .col-xs-12
+    .form-group
+      label(for="Country") Country(s)
+      input(type="text", name="country").form-control#country2
+  div(style="padding:0").col-xs-12
+    .col-xs-6
+      label(for="s_time_month") Start Month/Year (MM/YYYY)
+      .form-inline
+        .form-group
+          input(type="text", name="start_time_month", placeholder="MM").form-control#s_time_month2
+
+        .form-group
+          input(type="text", name="start_time_year", placeholder="YYYY").form-control#s_time_year2
+      span.help-block Leave blank for defaults
+    .col-xs-6
+      label(for="e_time_month") End Month/Year (MM/YYYY)
+      .form-inline
+        .form-group
+          input(type="text", name="end_time_month", placeholder="MM").form-control#e_time_month2
+        .form-group
+          input(type="text", name="end_time_year", placeholder="YYYY").form-control#e_time_year2
+      span.help-block Leave blank for defaults
+  .col-xs-12
+    .form-group
+      label(for="publish") Date Published
+      input(type="text", name="publish").form-control#publish2
+      span.help-block Leave blank for default
+  .col-xs-12
+    .form-group
+      label(for="cost") Cost
+      input(type="text", name="cost").form-control#cost2
+  .col-xs-12
+    .form-group
+      label(for="keywords") Keywords
+      input(type="text", name="keywords").form-control#keywords2
+      span.help-block Separate keywords using a semi-colon (;)
+  .col-xs-12
+    .form-group
+      label(for="Comment") Comment
+      textarea(name="comment", style="resize:none;height:150px;scrolling:auto;").form-control#comment2
+  .col-xs-12.col-md-4.col-md-push-1
+    .col-xs-12
+      h5 Associated Files
+    .col-xs-12
+      button(type="button", data-type="file").btn.btn-default.file_btn File
+      button(type="button", data-type="url").btn.btn-default.file_btn URL
+    .col-xs-12#file_canvas2
+      // hidden file upload
+      div(style="display:none;")
+        div(style="text-align:center;margin-top:40px;").col-xs-12
+          button(type="button").btn.btn-default.restartBtn Start Over
+          button(type="button").btn.btn-primary#nextBtn_1 Next
+
+
+
+

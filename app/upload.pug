@@ -1,0 +1,550 @@
+extends layouts/layout
+
+block vars
+  - var page_title = 'upload'
+
+block content
+  .row.row-tweak
+    div(style="padding-bottom:0;font-size: 0px;").col.xs-12
+      svg(data-name="Layer_1", xmlns="http://www.w3.org/2000/svg", viewBox="0 0 666.8 64.93", style="margin-top: 5px;margin-bottom: 5px;")#id="Layer_1"
+        //g#Backdrop
+          rect(x="4", y="7.97", width="657", height="49").cls-1
+        g#Fifth_Block
+          polygon(points="536.5 0.5 666.3 0.5 666.3 64.43 536.5 64.43 569 32.47 536.5 0.5").cls-26#Fifth_Block_Poly
+          text(transform="translate(572 29.47)").cls-3
+            tspan.cls-4
+              tspan.cls-5 Step 5:
+            tspan.cls-6
+              tspan(x="0", y="14.4").cls-7 Associated Files
+        g#Fourth_Block
+          polygon(points="402.5 0.5 532.3 0.5 565 32.47 532.3 64.43 402.5 64.43 435 32.47 402.5 0.5").cls-26#Fourth_Block_Poly
+          text(transform="translate(440 29.47)").cls-3
+            tspan.cls-4
+              tspan.cls-5 Step 4:
+            tspan.cls-6
+              tspan(x="0", y="14.4").cls-12 Search Data
+        g#Third_Block
+          polygon(points="268.5 0.5 398.3 0.5 431 32.47 398.3 64.43 268.5 64.43 301 32.47 268.5 0.5").cls-26#Third_Block_Poly
+          text(transform="translate(307 29.47)").cls-3
+            tspan.cls-4
+              tspan.cls-5 Step 3:
+            tspan.cls-6
+              tspan(x="0", y="14.4").cls-16 Study Information
+        g#Second_Block
+          polygon(points="134.5 0.5 264.3 0.5 297 32.47 264.3 64.43 134.5 64.43 167 32.47 134.5 0.5").cls-26#Second_Block_Poly
+          text(transform="translate(176 29.47)").cls-3
+            tspan.cls-4
+              tspan.cls-5 Step 2:
+            tspan.cls-6
+              tspan(x="0", y="14.4").cls-20 Publishing
+        g#First_Block
+          polygon(points="0.5 0.5 130.3 0.5 163 32.47 130.3 64.43 0.5 64.43 0.5 0.5").cls-21#First_Block_Poly
+          text(transform="translate(36 29.47)").cls-3
+            tspan.cls-4
+              tspan.cls-5 Step 1:
+            tspan.cls-6
+              tspan(x="0", y="14.4").cls-22 Overview
+
+  .row#uploadPanel
+    div.col-xs-12
+      // Pane 1
+      form(style="border:1px solid #bcbcbc;padding: 0 15px 0 15px")#upload_form_1
+        div(style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;").row
+          div(style="padding:0;").col-xs-4
+            // Back Button Removed on First Pane
+          div(style="padding:0;").col-xs-4
+
+          div(style="padding:0;").col-xs-4
+            button(type="submit", style="border-radius: 0;").btn.btn-primary.btn-lg.pull-right.bar_btn#upload_form_1_btn Next
+              i.glyphicon.glyphicon-chevron-right
+        .row
+          .col-xs-12
+            h3 Step 1: Overview
+          .col-xs-12
+            label(for="title") Title
+            .form-group
+              input(type="text", name="title", autocomplete="off").form-control#title
+          .col-xs-12
+            label(for="description") Description
+            .form-group
+              textarea(name="description", style="resize:none;height:150px;scrolling:auto;", autocomplete="off").form-control#description
+          .col-xs-12
+            label(for="editor") Summary
+            .form-group
+              div(style="background-color:#eee;")#toolbar
+
+              div(style="height:200px;background-color:#fff;")#editor
+          .col-xs-12
+            .form-group#categorylist
+              .row
+                .col-xs-12
+                  label(for="category") Category
+              div#category
+                .col-xs-12
+                  span#alertDayIcon
+              .col-xs-12#alertCheckboxes
+          div(style="margin-bottom: 20px;").col-xs-12
+            label Rating
+            .row
+              .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                select.box-style2#articleRatingFavor
+                  option(value="0") Neutral
+                  option(value="1") Favorable
+                  option(value="2") Unfavorable
+              .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                select.box-style2#articleRating
+                  option(value="0") No Rating
+                  option(value="1") 1 Star
+                  option(value="2") 2 Stars
+                  option(value="3") 3 Stars
+                  option(value="4") 4 Stars
+                  option(value="5") 5 Stars
+
+      // Pane 2
+      form(style="border:1px solid #bcbcbc;padding: 0 15px 0 15px")#upload_form_2
+        div(style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;").row
+          div(style="padding:0;").col-xs-4
+            button(type="button", data-id="2", style="border-radius: 0;").btn.btn-default.btn-lg.backBtn.bar_btn
+              i.glyphicon.glyphicon-chevron-left
+              | Back
+          div(style="padding:0;").col-xs-4
+          div(style="padding:0;").col-xs-4
+            button(type="submit", style="border-radius: 0;").btn.btn-primary.btn-lg.pull-right.bar_btn#upload_form_2_btn Next
+              i.glyphicon.glyphicon-chevron-right
+        div.row
+          .col-xs-12
+            h3 Step 2: Publishing
+          .col-xs-12
+            label(for="title") Author
+            .form-group
+              input(type="text", name="author", autocomplete="off").form-control#author
+          .col-xs-12
+            label(for="description") Journal/Presentation Location
+            .form-group
+              input(type="text", name="journal", autocomplete="off").form-control#journal
+          .col-xs-12
+            label(for="description") Publication Date
+          .col-xs-12.col-md-6
+            h5 Month
+            .form-group
+              select.form-control#pub_month
+                option(value="Null") No Month Available
+                option(value="1") January
+                option(value="2") February
+                option(value="3") March
+                option(value="4") April
+                option(value="5") May
+                option(value="6") June
+                option(value="7") July
+                option(value="8") August
+                option(value="9") September
+                option(value="10") October
+                option(value="11") November
+                option(value="12") December
+
+              //input(type="text", name="data_start_year", autocomplete="off").form-control#data_start_month
+          .col-xs-12.col-md-6
+            h5 Year
+            .form-group
+              input(type="text", name="year", autocomplete="off", maxlength="4").form-control#pub_year
+          .col-xs-12
+            label(for="description") Issue/Vol/Pages
+            .form-group
+              input(type="text", name="issue", autocomplete="off").form-control#issue
+          .col-xs-12
+            br
+            br
+
+      // Pane 3
+      form(style="border:1px solid #bcbcbc;padding: 0 15px 0 15px")#upload_form_3
+        div(style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;").row
+          div(style="padding:0;").col-xs-4
+            button(type="button", data-id="3", style="border-radius: 0;").btn.btn-default.btn-lg.backBtn.bar_btn
+              i.glyphicon.glyphicon-chevron-left
+              | Back
+          div(style="padding:0;").col-xs-4
+          div(style="padding:0;").col-xs-4
+            button(type="submit", style="border-radius: 0;").btn.btn-primary.btn-lg.pull-right.bar_btn#upload_form_3_btn Next
+              i.glyphicon.glyphicon-chevron-right
+        div.row
+          .col-xs-12
+            h3 Step 3: Study Information
+          .col-xs-12.col-md-6
+            label(for="title") Data Start Month
+            .form-group
+              select.form-control#data_start_month
+                option(value="Null") No Month Available
+                option(value="1") January
+                option(value="2") February
+                option(value="3") March
+                option(value="4") April
+                option(value="5") May
+                option(value="6") June
+                option(value="7") July
+                option(value="8") August
+                option(value="9") September
+                option(value="10") October
+                option(value="11") November
+                option(value="12") December
+
+              //input(type="text", name="data_start_year", autocomplete="off").form-control#data_start_month
+          .col-xs-12.col-md-6
+            label(for="title") Year
+            .form-group
+              input(type="text", name="start_year", autocomplete="off", maxlength="4").form-control#data_start_year
+          .col-xs-12.col-md-6
+            label(for="title") End Month
+            .form-group
+              select.form-control#data_end_month
+                option(value="Null") No Month Available
+                option(value="1") January
+                option(value="2") February
+                option(value="3") March
+                option(value="4") April
+                option(value="5") May
+                option(value="6") June
+                option(value="7") July
+                option(value="8") August
+                option(value="9") September
+                option(value="10") October
+                option(value="11") November
+                option(value="12") December
+              //input(type="text", name="data_end_year", autocomplete="off").form-control#data_end_month
+          .col-xs-12.col-md-6
+            label(for="title") Year
+            .form-group
+              input(type="text", name="end_year", autocomplete="off", maxlength="4").form-control#data_end_year
+          .col-xs-12
+            span.text-muted Only 1 date needs to be set if only 1 year is present.
+          .col-xs-12
+            label(for="title") Source Country(s)
+            .form-group
+              input(type="text", name="source_country", autocomplete="off").form-control#source_country
+          .col-xs-12
+            .form-group
+              .row
+                .col-xs-12
+                  label(for="category") Patient Data
+                  button(type="button", style="border-radius: 0;", data-toggle="modal", data-target="#patientDataModal").btn.btn-success.btn-xs#newPatientData
+                    span.glyphicon.glyphicon-plus
+              .row
+                .col-xs-12#patientData
+          .col-xs-12
+            .form-group
+              .row
+                .col-xs-12
+                  label(for="category") Data Sets
+                  button(type="button", style="border-radius: 0;", data-toggle="modal", data-target="#datasetModal").btn.btn-success.btn-xs#newMatrixData
+                    span.glyphicon.glyphicon-plus
+              .row
+                .col-xs-12#datasets
+
+      // Pane 4
+      form(style="border:1px solid #bcbcbc;padding: 0 15px 0 15px")#upload_form_4
+        div(style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;").row
+          div(style="padding:0;").col-xs-4
+            button(type="button", data-id="4", style="border-radius: 0;").btn.btn-default.btn-lg.backBtn.bar_btn
+              i.glyphicon.glyphicon-chevron-left
+              | Back
+          div(style="padding:0;").col-xs-4
+          div(style="padding:0;").col-xs-4
+            button(type="submit", style="border-radius: 0;").btn.btn-primary.btn-lg.pull-right.bar_btn#upload_form_4_btn Publish
+              i.glyphicon.glyphicon-chevron-right
+        div.row
+          .col-xs-12
+            h3 Step 4: Search Data
+          .col-xs-12
+            label(for="description") Initial Comment
+            .form-group
+              textarea(name="comments", style="resize:none;height:150px;scrolling:auto;", autocomplete="off").form-control#comments
+          .col-xs-12
+            label(for="keywords") Keywords (Separated by Commas)
+            .form-group
+              textarea(name="keywords", style="resize:none;height:150px;scrolling:auto;", autocomplete="off").form-control#keywords
+
+      // Pane 5
+      form(style="border:1px solid #bcbcbc;padding: 0 15px 0 15px")#upload_form_5
+        div(style="background-color:#ededed;border-bottom: 1px solid #bcbcbc;").row
+          div(style="padding:0;").col-xs-4
+          div(style="padding:0;").col-xs-4
+          div(style="padding:0;").col-xs-4
+            button(type="submit", style="border-radius: 0;").btn.btn-primary.btn-lg.pull-right.bar_btn#upload_form_5_btn New Article
+        div.row
+          .col-xs-12
+            h3 Step 5: Associated Files
+
+          .col-xs-12
+            label(for="title") File
+              button(type="button", data-toggle="modal", data-target="#uploadFileModal").btn.btn-primary.nobtnpad#FileAddBtn
+                i.glyphicon.glyphicon-plus
+            div#doc_listing
+          .col-xs-12
+            label(for="title") URL
+              button(type="button", data-toggle="modal", data-target="#uploadUrlModal").btn.btn-primary.nobtnpad#UrlAddBtn
+                i.glyphicon.glyphicon-plus
+            div#url_listing
+          .col-xs-12
+            label(for="title") Linked Articles
+              button(type="button", data-toggle="modal", data-target="#attachArticleModal").btn.btn-primary.nobtnpad#ArticleAddBtn
+                i.glyphicon.glyphicon-plus
+            div#article_listing
+
+
+block modals
+  div(role="dialog").modal.fade#restartCheck
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          h4 Confirm Restart
+        div.modal-body
+          | Are you sure?
+        div.modal-footer
+          button(type="button", data-dismiss="modal").btn.btn-danger No
+          button(type="button", data-dismiss="modal").btn.btn-success#confirmRestartBtn Yes
+
+  div(role="dialog").modal.fade#publishConfirmModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          h4 Confirm Article Publish
+        div.modal-body#editmodeUpdate
+          | Are you sure you want to publish your article?
+        div.modal-footer
+          button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+          button(type="button", data-dismiss="modal").btn.btn-success#confirmPublishBtn Publish
+
+  div(role="dialog").modal.fade#fileConfirmModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          h4 Confirm File/ URL Publish
+        div.modal-body
+          | Are you sure you want to publish your article's file and URLs?
+        div.modal-footer
+          button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+          button(type="button", data-dismiss="modal").btn.btn-success#filePublishBtn Publish
+
+  div(role="dialog").modal.fade#uploadUrlModal
+    div.modal-dialog
+      div.modal-content
+        form#urlUploadForm
+          div.modal-header
+            button(type="button", data-dismiss="modal").close &times;
+            h4 Add URL
+          div.modal-body
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Friendly Name (Displayed)
+                  Input(type="text", autocomplete="false", name="urlFriendlyName").form-control#urlFriendlyName
+            .row
+              .col-xs-12
+                br
+                .form-group
+                  label(for="urlPath") URL
+                  Input(type="text", autocomplete="false", name="urlPath").form-control#urlPath
+          div.modal-footer
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            input(type="hidden")#urlEditID
+            button(type="submit").btn.btn-success#addUrl Add
+
+  div(role="dialog").modal.fade#uploadFileModal
+    div.modal-dialog
+      div.modal-content
+        form#fileUploadForm
+          div.modal-header
+            button(type="button", data-dismiss="modal").close &times;
+            h4 Upload Files
+          div.modal-body
+            .row
+              div(style="margin-bottom: 10px;").col-xs-12
+                a(href="#", style="font-weight: bold;color:#333;")#fileNewAttach New
+                | &nbsp;
+                | |
+                | &nbsp;
+                a(href="#")#fileExistingAttach Existing
+            div#filespecified
+              .row
+                .col-xs-12
+                  .form-group
+                    label(for="urlFriendlyName") Friendly Name (Displayed)
+                    Input(type="text", autocomplete="false", name="fileFriendlyName").form-control#fileFriendlyName
+              .row
+                .col-xs-12
+                  br
+                  .form-group
+                    span.control-fileupload
+                      label(for="file1")#file1label.text-left Please choose a file on your computer
+                      input(type="file", id="file1")
+              .row
+                .col-xs-12
+                  br
+                  label(style="font-weight:normal !important;")
+                    input(type="checkbox")#prev_print
+                    | &nbsp;Prevent Printing
+                  | &nbsp;&nbsp;
+                  label(style="font-weight:normal !important;")
+                    input(type="checkbox")#prev_save
+                    | &nbsp;Prevent Saving
+            div(style="display: none;")#fileExisting
+              .row
+                .col-xs-10
+                  .form-group
+                    label(for="urlFriendlyName") Existing File
+                    select.form-control#fileExistingList
+                .col-xs-2
+                  div(style="text-align:center;").form-group
+                    label(style="width: 100%;") Preview
+                    button(type="button").btn.btn-primary#fileExistPreviewBtn
+                      span.glyphicon.glyphicon-eye-open
+
+          div.modal-footer
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            input(type="hidden", value="new")#filetype
+            button(type="submit").btn.btn-success#addFile Add
+            button(type="button", style="display:none;").btn.btn-success#addExistFile Add
+
+  div(role="dialog").modal.fade#attachArticleModal
+    div.modal-dialog
+      div.modal-content
+        form#articleUploadForm
+          div.modal-header
+            button(type="button", data-dismiss="modal").close &times;
+            h4 Upload Files
+          div.modal-body
+            div#articleExisting
+              .row
+                .col-xs-10
+                  .form-group
+                    label(for="urlFriendlyName") Existing File
+                    select.form-control#articleExistingList
+                .col-xs-2
+                  div(style="text-align:center;").form-group
+                    label(style="width: 100%;") Preview
+                    button(type="button").btn.btn-primary#articleExistPreviewBtn
+                      span.glyphicon.glyphicon-eye-open
+              .row
+                .col-xs-12
+                  br
+                  label(for="urlFriendlyName") Article Relation
+                  select.form-control#articleRelationship
+                    option(value="1") Two-Way Relation
+                    option(value="2") Existing Related to New Only
+                    option(value="3") New Related to Existing Only
+                  br
+                  span.text-muted
+                    span(style="font-weight:bold;") Two-Way Relation:
+                    | &nbsp;Both articles relate to each other
+                  br
+                  span.text-muted
+                    span(style="font-weight:bold;") Existing Related to New Only:
+                    | &nbsp;Existing article appears on new only
+                  br
+                  span.text-muted
+                    span(style="font-weight:bold;") New Related to Existing Only:
+                    | &nbsp;New article appears on existing only
+
+          div.modal-footer
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            button(type="button").btn.btn-success#addExistArticle Add
+
+  div(role="dialog").modal.fade#patientDataModal
+    div.modal-dialog
+      div.modal-content
+        form
+          div.modal-header
+            button(type="button", data-dismiss="modal").close &times;
+          div.modal-body#patientDataSetAdd
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Patient Count
+                  input(type="hidden").form-control#patient-set-index
+                  input(type="text").form-control#patient-set-count
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Details
+                  textarea.form-control#patient-set-details
+          div.modal-footer
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            button(type="button").btn.btn-success#addPatientDataSet Add
+
+
+  div(role="dialog").modal.fade#datasetModal
+    div.modal-dialog
+      div.modal-content
+        form
+          div.modal-header
+            button(type="button", data-dismiss="modal").close &times;
+          div.modal-body#dataSetAdd
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Matrix
+                  input(type="hidden").form-control#matrix-index
+                  select.form-control#matrices
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Product(s)
+                  input(type="text").form-control#data-set-products
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Sensitivity (Decimal)
+                  input(type="text").form-control#data-set-sensitivity
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Sensitivity Notes
+                  textarea.form-control#data-set-sensitivity-notes
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Specificity (Decimal)
+                  input(type="text").form-control#data-set-specificity
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="urlFriendlyName") Specificity Notes
+                  textarea.form-control#data-set-specificity-notes
+          div.modal-footer
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            button(type="button").btn.btn-success#addDataSet Add
+
+block preloadjs
+  //script(src='scripts/upload_forms.js')
+
+block add-on-js
+  script(type="text/javascript")
+    |  var toolbarOptions = [
+    |   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    |   ['blockquote', 'code-block'],
+    |
+    |    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+    |    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    |    [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+    |    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    |    [{ 'direction': 'rtl' }],                         // text direction
+    |
+    |    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    |    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    |
+    |    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    |    [{ 'font': [] }],
+    |    [{ 'align': [] }],
+    |
+    |    ['clean']                                         // remove formatting button
+    |  ];
+    | var quill = new Quill('#editor', {
+    |     modules: {
+    |       toolbar: toolbarOptions
+    |     },
+    |     theme: 'snow'
+    |   });
+
+  script $('#curPage').html('Upload Articles&nbsp;');

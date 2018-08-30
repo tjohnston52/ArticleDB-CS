@@ -1,0 +1,11 @@
+extends layouts/pdflayout
+
+block vars
+  - var page_title = 'search'
+block content
+  div(style="height:1000px;").pdfjs
+    include ../bower_components/pdf.js-viewer/viewer.html
+
+block add-on-js
+  script
+    | loadPDF();

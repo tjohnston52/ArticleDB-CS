@@ -1,0 +1,77 @@
+extends layouts/layout
+
+block vars
+  - var page_title = 'files'
+
+block content
+  div(style="margin: 5px 0; background-color:#fff;").row.row-tweak
+    .row
+      .col-xs-12
+        div(style="background-color:#444;padding: 5px;")
+          button(data-toggle="modal", data-target="#uploadFileModal").btn.btn-default#addNewFile New File
+          div(style="background-color:transparent !important;").pull-right
+            input(type="text", style="display:inline;vertical-align:middle;").box-style2#searchFilesInput
+            button.btn.btn-default#searchFiles Search
+
+
+    .row
+      .col-xs-12
+        .paginating
+    .row
+      .col-xs-12
+        #file-set
+    .row
+      .col-xs-12
+        .paginating
+    div(style="margin-top: 7px;").row
+      .col-xs-12
+        div.searchResultsInfo
+
+
+block modals
+  div(role="dialog").modal.fade#removeFileFromSystem
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              h3 Are you sure?
+              div(style="max-height: 300px; overflow:auto;").optionalFileDelete
+                h4 This file is connected to:
+                #fileConnections
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button", data-dismiss="modal").btn.btn-danger#removeArticleFromCollection REMOVE
+
+  div(role="dialog").modal.fade#uploadFileModal
+    div.modal-dialog
+      div.modal-content
+        form#fileUploadForm
+          div.modal-header
+            button(type="button", data-dismiss="modal").close &times;
+            h4 Upload Files
+          div.modal-body
+            .row
+              .col-xs-12
+                .form-group
+                  label(for="fileFriendlyName") Friendly Name (Displayed)
+                  input(type="text", autocomplete="false", name="fileFriendlyName").form-control#fileFriendlyName
+            .row
+              .col-xs-12
+                br
+                .form-group
+                  span.control-fileupload
+                    label(for="file1").text-left Please choose a file on your computer
+                    input(type="file", id="file1")
+          div.modal-footer
+            button(type="button", data-dismiss="modal").btn.btn-danger Cancel
+            button(type="submit").btn.btn-success#addFile Add
+
+
+block add-on-js
+  script $('#curPage').html('Files&nbsp;');

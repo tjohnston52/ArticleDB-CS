@@ -1,0 +1,155 @@
+extends layouts/layout
+
+block vars
+  - var page_title = 'search'
+block content
+  div(style="margin: 5px 0;").row.row-tweak
+    div(data-opened="true").row#SimpleSearchArea
+      .col-xs-12
+        .input-group.my-group
+          .form-group
+            .inner-addon.left-addon
+              i.glyphicon.glyphicon-search
+              input(style="border-radius: 0 !important;").form-control.box-style.input-lg#searchTerm
+
+          span.input-group-btn
+
+            button(type="button", style="border-radius: 0;").btn.btn-primary.btn-lg#runSearch Search
+        div.pull-right#advanceSearch
+          a(href="#", data-open="#AdvancedSearch", data-hide="#SimpleSearchArea").searchType Advanced Search
+    .row#AdvancedSearch
+        .col-xs-12
+          div(style="padding-left :0; padding-right: 0; margin-bottom: 10px;").row.cat
+            .col-xs-12
+              .row
+                .col-xs-3.searchCatRow
+                  select(data-loaded="no").form-control.box-style2.searchCats
+                    option(value='x', data-id="0" ) Please Choose
+
+                  //span.input-group-btn
+                    button(type="button").btn.btn-danger
+                      span(style="top: 2px;").glyphicon.glyphicon-trash
+
+
+              //span.input-group-btn
+          .row#bottomAdvSearch
+            .col-xs-6
+              div
+                button(type="button", onclick="add_new_line()").btn.btn-success
+                  span(style="top: 2px;").glyphicon.glyphicon-plus
+            .col-xs-6
+              div.pull-right
+                button(type="button", style="border-radius: 0;").btn.btn-primary.btn-lg#runAdvancedSearch Search
+          .row
+            .col-xs-12
+              div.pull-right#simpleSearch
+                a(href="#", data-open="#SimpleSearchArea", data-hide="#AdvancedSearch").searchType Simple Search
+  div(style="margin: 5px 0;").row
+    div(style="margin-bottom: 7px;").row.aligned-row
+      .col-xs-8.col-md-10(style="position: relative;")
+          div(style="position: absolute; bottom: 0;").searchResultsInfo.input-md &nbsp;
+      .col-xs-4.col-md-2
+        .pull-right#num
+          select(onchange="getArticles(1)").form-control#page_inc
+            option(value="5") 5
+            option(value="10", selected="selected") 10
+            option(value="15") 15
+            option(value="25") 25
+            option(value="50") 50
+    .row.row-tweak#simpleSort
+      div(style="background-color:#fff;padding: 10px;").col-xs-12
+        | Order By |
+        button(type="button", data-sort="title", data-order="0").btn.btn-default.btn-small.sort Title
+          span.order
+        button(type="button", data-sort="author", data-order="0").btn.btn-default.btn-small.sort Author(s)
+          span.order
+        button(type="button", data-sort="publish", data-order="0").btn.btn-default.btn-small.sort Publish Date
+          span.order
+        button(type="button", data-sort="favor", data-order="0").btn.btn-default.btn-small.sort Favorability
+          span.order
+          //span(style="font-weight:normal; font-size: 10px;").glyphicon.glyphicon-chevron-down
+    .row
+      .col-xs-12
+        .paginating
+    .row
+      .col-xs-12
+        .articles
+    .row
+      .col-xs-12
+        .paginating
+    div(style="margin-top: 7px;").row
+      .col-xs-12
+        div.searchResultsInfo
+
+
+block modals
+
+  div(role="dialog").modal.fade#articleDetailModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          h4 Article Details
+          input(type="hidden")#articleID
+        div.modal-body#articleDetailInformation
+          .row
+            .col-xs-12
+              div.pull-right#ratings
+            .col-xs-12
+              h4 Title
+              div#articleTitle
+
+            .col-xs-12
+              h4 Author(s)
+              div#articleAuthor
+
+            .col-xs-12
+              h4 Publish Date
+              div#articlePublishDate
+
+            .col-xs-12
+              h4 Description
+              div#articleSummary
+
+            .col-xs-12
+              h4 Comments
+              div#articleComments
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-toggle="dropdown").btn.btn-default.dropdown-toggle
+              | &plus; Collection
+            ul(role="menu").dropdown-menu.pull-right#collectionDDL
+
+            button(type="button", data-dismiss="modal").btn.btn-primary#loadArticle Continue >
+
+  div(role="dialog").modal.fade#newCollection
+    div.modal-dialog
+      div.modal-content
+        div.modal-body
+          button(type="button", data-dismiss="modal").close &times;
+          .row
+            .col-xs-12
+              input(type="hidden")#edit_art_id
+              label
+                h3 Collection Name
+              input(type="text", style="border-radius: 0;").form-control#newCollectionName
+          .row
+            .col-xs-12.col-sm-8.col-md-6
+              label
+                h3 Visibility (Searching Only)
+              select.form-control#isGlobal
+                option(value="0") Private
+                option(value="1") Public
+
+        div.modal-footer
+          span.input-group-btn
+            button(type="button", data-dismiss="modal").btn.btn-default
+              | Cancel
+
+            button(type="button").btn.btn-primary#createNewCollectionBtn Create
+
+block add-on-js
+  script $('#curPage').html('Search Articles&nbsp;');
+  script run_search();
+  script preload_search();

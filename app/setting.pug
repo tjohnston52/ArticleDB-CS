@@ -1,0 +1,67 @@
+extends layouts/layout
+
+block vars
+  - var page_title = 'setting'
+
+block content
+  div(style="margin: 5px 0; background-color:#fff;").row.row-tweak
+    .row
+      .col-xs-12
+        div(style="background-color:#444;padding: 5px;")
+          div.input-group
+            select(style="width:150px;", onchange="loadMatCat()").box-style2#matcattype
+              option(value="matrix") Matrix
+              option(value="category") Category
+            span.input-group-btn
+              button(type="button", data-target="#matcatModal", data-toggle="modal").btn.btn-default#matcatToModal New
+
+    .row
+      .col-xs-12
+        .paginating
+    .row
+      .col-xs-12
+        #matcat
+    .row
+      .col-xs-12
+        .paginating
+    div(style="margin-top: 7px;").row
+      .col-xs-12
+        div.searchResultsInfo
+
+
+block modals
+  div(role="dialog").modal.fade#matcatModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          input(type="hidden")#matcatID
+        div.modal-body
+          .row
+            .col-xs-12
+              h4#matcatModalTitle Display Name
+              input(type="text").form-control#matcatName
+
+        div.modal-footer
+          button(type="button").btn.btn-primary#matcatPushBtn
+
+  div(role="dialog").modal.fade#matcatDelModal
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button", data-dismiss="modal").close &times;
+          input(type="hidden")#matcatDelID
+          input(type="hidden")#matcatDelAssoc
+        div.modal-body
+          .row
+            .col-xs-12
+              h4#matcatDelModalTitle Display Name
+              div Are you sure you want to delete:
+                br
+              div(style="text-align: center;")#matcatDelSubTitle
+
+        div.modal-footer
+          button(type="button").btn.btn-danger#matcatPushDelBtn
+
+block add-on-js
+  script $('#curPage').html('Matrix/Category&nbsp;');

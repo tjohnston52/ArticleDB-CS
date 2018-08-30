@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IFD Article Resource</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory-->
+    <!-- build:css styles/vendor.css-->
+    <!-- bower:css-->
+    <!-- endbower-->
+    <!-- endbuild-->
+    <link rel="stylesheet" href="../bower_components/quill/quill.core.css">
+    <link rel="stylesheet" href="../bower_components/quill/quill.snow.css">
+    <!-- build:css styles/main.css-->
+    <link rel="stylesheet" href="styles/addon.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild-->
+    <!-- build:js scripts/vendor/modernizr.js-->
+    <!-- endbuild-->
+    <body><!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+      <!--.container-fluid
+      .row
+        div(style="background-color: #444;").col-xs-12
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark Button
+          button(type="button", style="margin-left: 3px;").btn.btn-sm.btn-dark Add Resources
+      -->
+      <div class="container">
+        <div class="header pad-tweak" style="padding-top:15px;padding-bottom: 15px;">
+          <div class="pull-right">
+            <div class="dropdown" style="padding:10px 15px 10px 10px;cursor:pointer;"><a class="dropdown-toggle" type="button" data-toggle="dropdown" id="loginDropDownMenu"><span id="user">tjohnston@orasure.com&nbsp;</span><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="loginDropDownMenu">
+                <li role="presentation"><a href="#" tabindex="-1" role="menitem" id="navLogout">Logout</a></li>
+              </ul>
+            </div>
+            <div class="dropdown" style="cursor:pointer;">
+              <button class="dropdown-toggle" type="button" data-toggle="dropdown" id="NavDropDownMenu"><span id="curPage">&nbsp;&nbsp;</span><span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="loginDropDownMenu">
+                <li role="presentation"><a href="search" tabindex="-1" role="menitem" id="navSearchArticles">Search Articles</a></li>
+                <li role="presentation"><a href="upload" tabindex="-1" role="menitem" id="navUploadArticles">Upload Articles</a></li>
+                <li class="divide"></li>
+                <li class="dropdown dropdown-submenu" role="presentation"><a class="dropdown-toggle" href="#" tabindex="-1" role="menitem" data-toggle="dropdown" id="navSettings">System Settings</a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><a href="account" tabindex="-1" role="menitem" id="navAccount">Account Info</a></li>
+                    <li class="divide"></li>
+                    <li role="presentation"><a href="collections" tabindex="-1" role="menitem" id="navViewCollections">Collections</a></li>
+                    <li role="presentation"><a href="users" tabindex="-1" role="menitem" id="navUsers">Users</a></li>
+                    <li role="presentation"><a href="files" tabindex="-1" role="menitem" id="navFiles">Files</a></li>
+                    <li role="presentation"><a href="setting" tabindex="-1" role="menitem" id="navMatrix">Matrix/Category</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div><a href="/search"><img class="img-responsive" src="images/logo.png" alt="OraSure Logo" style="width: 220px;"></a>
+        </div>
+        <div class="row row-tweak">
+          <div style="width: 100%;height: 30px;background-color:#17527E;"></div>
+        </div>
+        <!-- Search Bar-->
+        <div class="row row-tweak" style="margin: 5px 0;">
+          <div class="row" id="SimpleSearchArea">
+            <div class="col-xs-12">
+              <div class="input-group my-group">
+                <div class="form-group">
+                  <div class="inner-addon left-addon"><i class="glyphicon glyphicon-search"></i>
+                    <input class="form-control box-style input-lg" id="searchTerm">
+                  </div>
+                </div><span class="input-group-btn">
+                  <button class="btn btn-primary btn-lg" type="button" id="runSearch">Search</button></span>
+              </div>
+              <div class="pull-right" id="advanceSearch"><a class="searchType" href="#" data-open="#AdvancedSearch" data-hide="#SimpleSearchArea">Advanced Search</a></div>
+            </div>
+          </div>
+          <div class="row" id="AdvancedSearch">
+            <div class="col-xs-12">
+              <div class="row cat" style="padding-left :0; padding-right: 0; margin-bottom: 10px;">
+                <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-3 searchCatRow">
+                      <select class="form-control box-style2 searchCats" data-loaded="no">
+                        <option value="x" data-id="0">Please Choose</option>
+                      </select>
+                      <!--span.input-group-btn
+                      button(type="button").btn.btn-danger
+                        span(style="top: 2px;").glyphicon.glyphicon-trash
+                      
+                      
+                      -->
+                    </div>
+                  </div>
+                  <!--span.input-group-btn-->
+                </div>
+              </div>
+              <div class="row" id="bottomAdvSearch">
+                <div class="col-xs-6">
+                  <div>
+                    <button class="btn btn-success" type="button" onclick="add_new_line()"><span class="glyphicon glyphicon-plus" style="top: 2px;"></span></button>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="pull-right">
+                    <button class="btn btn-primary btn-lg" type="button" id="runAdvancedSearch">Search</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="pull-right" id="simpleSearch"><a class="searchType" href="#" data-open="#SimpleSearchArea" data-hide="#AdvancedSearch">Simple Search</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin: 5px 0;">
+          <div class="row aligned-row" style="margin-bottom: 7px;">
+            <div class="col-xs-8 col-md-10" style="position: relative;">
+              <div class="searchResultsInfo input-md" style="position: absolute; bottom: 0;">&nbsp;</div>
+            </div>
+            <div class="col-xs-4 col-md-2">
+              <div class="pull-right" id="num">
+                <select class="form-control" onchange="getArticles(1)" id="page_inc">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="paginating"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="articles"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="paginating"></div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 7px;">
+            <div class="col-xs-12">
+              <div class="searchResultsInfo"></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="row">
+            <div style="width: 100%;height: 30px;background-color:#17527E;margin-top: 5px;"></div>
+          </div>
+          <p>&hearts; from the Creative Services</p>
+          <button class="btn btn-default center-block" type="button" id="storageReset">Reset</button>
+        </div>
+      </div>
+      <div class="modal fade" role="dialog" id="searchOptionsModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">&times;</button>
+              <h4>Search Options</h4>
+            </div>
+            <div class="modal-body" id="SearchOptionsSection">
+              <div class="form-group row">
+                <div class="col-xs-12 col-sm-5 col-md-4 col-xs-12-adjust dynamic-input-padding">
+                  <select class="form-control" id="searchOptionsOption">
+                    <option value="--">Select an Option</option>
+                    <option value="key">Keyword(s)</option>
+                    <option value="title">Title</option>
+                    <option value="title">Author</option>
+                    <option value="title">Year</option>
+                    <option value="title">Country</option>
+                    <option value="title">Description</option>
+                    <option value="title">Sensitivity</option>
+                    <option value="title">Specificity</option>
+                  </select>
+                </div>
+                <div class="col-xs-10 col-md-6 dynamic-input-padding">
+                  <input class="form-control" type="text">
+                </div>
+                <div class="col-xs-2 col-md-1">
+                  <button class="btn btn-default center-block new-search-field" type="button">&plus;</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" type="button" data-dismiss="modal">Submit</button>
+              <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" role="dialog" id="articleDetailModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">&times;</button>
+              <h4>Article Details</h4>
+              <input type="hidden" id="articleID">
+            </div>
+            <div class="modal-body" id="articleDetailInformation">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="pull-right" id="ratings"><img class="ratings" src="images/smallstar.png"><img class="ratings" src="images/smallstar.png"><img class="ratings" src="images/smallstar.png"></div>
+                </div>
+                <div class="col-xs-12">
+                  <h4>Title</h4>
+                  <div id="articleTitle"></div>
+                </div>
+                <div class="col-xs-12">
+                  <h4>Author(s)</h4>
+                  <div id="articleAuthor"></div>
+                </div>
+                <div class="col-xs-12">
+                  <h4>Publish Date</h4>
+                  <div id="articlePublishDate"></div>
+                </div>
+                <div class="col-xs-12">
+                  <h4>Summary</h4>
+                  <div id="articleSummary"></div>
+                </div>
+                <div class="col-xs-12">
+                  <h4>Comments</h4>
+                  <div id="articleComments"></div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer"><span class="input-group-btn">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">&plus; Collection</button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                  <li><a class="new_bucket" href="#" id="new_bucket">New Collection</a></li>
+                  <li class="divider"></li>
+                  <li><a class="add_bucket" href="#" data-bucket="my_bucket">Test Collection</a></li>
+                </ul>
+                <button class="btn btn-primary" type="button" data-dismiss="modal" id="loadArticle">Continue ></button></span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+      <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+          e.src='https://www.google-analytics.com/analytics.js';
+          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+        
+      </script>
+      <!-- build:js scripts/vendor.js-->
+      <!-- bower:js-->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <!-- endbower-->
+      <!-- endbuild-->
+      <!-- build:js scripts/plugins.js-->
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+      <script src="/bower_components/form.validation/dist/js/formValidation.js"></script>
+      <script src="/bower_components/form.validation/dist/js/framework/bootstrap.js"></script>
+      <script src="/bower_components/toastr/toastr.js"></script>
+      <script src="/bower_components/quill/quill.js"></script>
+      <!-- endbuild-->
+      <!-- build:js scripts/main.js-->
+      <script src="scripts/book.js"></script>
+      <script src="scripts/main.js"></script>
+      <!-- endbuild-->
+      <script>$('#curPage').html('Search Articles&nbsp;');</script>
+      <script>getArticles(1);</script>
+    </body>
+  </head>
+</html>
